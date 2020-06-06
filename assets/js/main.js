@@ -334,34 +334,48 @@
         }, 500);
       });
     })();
+
 })(jQuery);
-$(function () {
-  console.log("ready!");
 
-  var app = document.getElementById("app");
-
-  var typewriter = new Typewriter(app, {
-    loop: true,
+// Maquina de escribir
+var TxtType = function (t, e, i) {
+  (this.toRotate = e),
+    (this.el = t),
+    (this.loopNum = 0),
+    (this.period = parseInt(i, 10) || 2e3),
+    (this.txt = ""),
+    this.tick(),
+    (this.isDeleting = !1);
+};
+(TxtType.prototype.tick = function () {
+  var t = this.loopNum % this.toRotate.length,
+    e = this.toRotate[t];
+  this.isDeleting
+    ? (this.txt = e.substring(0, this.txt.length - 1))
+    : (this.txt = e.substring(0, this.txt.length + 1)),
+    (this.el.innerHTML = '<span class="wrap">' + this.txt + "</span>");
+  var i = this,
+    s = 200 - 100 * Math.random();
+  this.isDeleting && (s /= 2),
+    this.isDeleting || this.txt !== e
+      ? this.isDeleting &&
+        "" === this.txt &&
+        ((this.isDeleting = !1), this.loopNum++, (s = 500))
+      : ((s = this.period), (this.isDeleting = !0)),
+    setTimeout(function () {
+      i.tick();
+    }, s);
+}),
+  (window.onload = function () {
+    var t = document.getElementsByClassName("maquina-escribir");
+    for (t, e = 0; e < t.length; e++) {
+      var i = t[e].getAttribute("data-type"),
+        s = t[e].getAttribute("data-period");
+      i && new TxtType(t[e], JSON.parse(i), s);
+    }
+    var n = document.createElement("style");
+    (n.type = "text/css"),
+      (n.innerHTML =
+        ".maquina-escribir > .wrap { solid #fff}"),
+      document.body.appendChild(n);
   });
-
-  typewriter
-    .typeString("Hola amor!")
-    .pauseFor(2000)
-    .deleteAll()
-    .typeString("Este es un pequeño detalle")
-    .pauseFor(2000)
-    .deleteChars(26)
-    .typeString("Para alguien tan ")
-    .typeString("<strong>hermosa!</strong>")
-    .pauseFor(2000)
-    .deleteChars(8)
-    .typeString("<strong>especial!</strong>")
-    .pauseFor(2000)
-    .deleteChars(9)
-    .typeString("<strong>genial!</strong>")
-    .pauseFor(2000)
-    .deleteChars(7)
-    .typeString("<strong>espectacular!</strong>")
-    .pauseFor(2000)
-    .start();
-});

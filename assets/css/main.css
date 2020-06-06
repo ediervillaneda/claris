@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600");
+/* @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600"); */
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
 @import url("fontawesome-all.min.css");
 
 /*
@@ -228,7 +229,8 @@ body,
 input,
 select,
 textarea {
-  font-family: "Source Sans Pro";
+  /* font-family: "Source Sans Pro"; */
+  font-family: 'Kalam', cursive;
   font-weight: 400;
   padding: 0;
   font-size: 13pt;
@@ -808,7 +810,7 @@ body.is-preload #main .item.thumb img {
 
 .poptrox-popup {
   background: #1a1f2c;
-  background: rgba(18, 21, 29, 0.9);
+  background: rgba(18, 21, 29, 0.5);
   box-shadow: 0px 0px 0px 10px #fff, 0px 10px 60px 10px rgba(8, 11, 19, 0.55);
   cursor: default;
 }
@@ -821,8 +823,8 @@ body.is-preload #main .item.thumb img {
   top: 50%;
   left: 50%;
   margin: -24px 0 0 -24px;
-  background: url("images/loader.gif");
-  opacity: 0.25;
+  background: url("images/loader.svg");
+  /* opacity: 0.5; */
 }
 
 .poptrox-popup .caption {
@@ -925,4 +927,40 @@ body.is-preload #main .item.thumb img {
   .poptrox-popup .nav-previous {
     display: none !important;
   }
+}
+
+.rainbow {
+  background: linear-gradient(
+    to right,
+    #6666ff,
+    #0099ff,
+    #00ff00,
+    #ff3399,
+    #6666ff
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: rainbow_animation 6s ease-in-out infinite;
+  background-size: 400% 100%;
+}
+
+@keyframes rainbow_animation {
+  0%,
+  100% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 100% 0;
+  }
+}
+
+z {
+  font-weight: bold;
+}
+.maquina-escribir {
+  font-family: "Indie Flower";
+  font-style: italic;
+  text-decoration: none;
 }
