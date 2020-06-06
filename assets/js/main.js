@@ -96,6 +96,7 @@
 
   // Poptrox.
   $main.poptrox({
+    preload: true,
     onPopupOpen: function () {
       $body.addClass("is-poptrox-visible");
     },
@@ -334,7 +335,6 @@
         }, 500);
       });
     })();
-
 })(jQuery);
 
 // Maquina de escribir
@@ -375,7 +375,6 @@ var TxtType = function (t, e, i) {
     }
     var n = document.createElement("style");
     (n.type = "text/css"),
-      (n.innerHTML =
-        ".maquina-escribir > .wrap { solid #fff}"),
+      (n.innerHTML = ".maquina-escribir > .wrap { solid #fff}"),
       document.body.appendChild(n);
   });
