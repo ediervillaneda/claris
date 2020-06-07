@@ -70,7 +70,8 @@
   $window.on("load", function () {
     window.setTimeout(function () {
       $body.removeClass("is-preload");
-    }, 100);
+      $('.heartbeat-container').remove();
+    }, 2000);
   });
 
   // Items.
