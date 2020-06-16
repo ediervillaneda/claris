@@ -71,7 +71,7 @@
     window.setTimeout(function () {
       $body.removeClass("is-preload");
       $('.heartbeat-container').remove();
-    }, 2000);
+    }, 750);
   });
 
   // Items.
@@ -97,7 +97,7 @@
 
   // Poptrox.
   $main.poptrox({
-    preload: true,
+    // preload: true,
     onPopupOpen: function () {
       $body.addClass("is-poptrox-visible");
     },
