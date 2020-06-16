@@ -97,7 +97,7 @@
 
   // Poptrox.
   $main.poptrox({
-    // preload: true,
+    preload: true,
     onPopupOpen: function () {
       $body.addClass("is-poptrox-visible");
     },
